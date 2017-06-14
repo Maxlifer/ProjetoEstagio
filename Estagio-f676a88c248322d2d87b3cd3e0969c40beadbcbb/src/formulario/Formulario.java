@@ -25,7 +25,7 @@ public class Formulario {
         escolherOpcao(x);
         }
         } catch (Exception ex) {
-            System.err.println("Digite um nÃºmero da prÃ³xima vez!");
+            System.err.println("Digite um numero da proxima vez!");
         }
     }
     
@@ -36,7 +36,7 @@ public class Formulario {
         System.out.println("1) Registrar nova pessoa.");
         System.out.println("2) Ver todos os registros.");
         System.out.println("3) Sair.");
-        System.out.println("Digite a opÃ§Ã£o desejada.");
+        System.out.println("Digite a opcao desejada.");
         System.out.println("==============================");       
     }
     
@@ -66,6 +66,7 @@ public class Formulario {
         System.out.print("Digite a cidade em que nasceu: ");
         String cidade = in.nextLine();
         System.out.print("Digite seu cpf(11 números): ");
+        //Regra para o cpf que deve conter 11 números
         String cpf = regraCpf(in.nextLine());
         System.out.print("Digite seu email: ");
         String email = in.nextLine();
@@ -78,18 +79,20 @@ public class Formulario {
     }
     
     public static void mostrarLista() {
+       //Imprime todos os usuários registrados e seus respectivos dados
         for (Pessoa pessoa: lista)
             System.out.println(pessoa.imprimirPessoa());
         
         System.out.println(lista.size());
     }
     public static String regraCpf(String cpf) {
-        cpf = in.nextLine();
-        if(cpf.length() != 11) {
+        
+        while(cpf.length() != 11) {
             System.out.println("Cpf deve conter 11 números. Digite novamente");
         cpf = in.nextLine();
+
         
         }
-    return cpf;
+        return cpf;
     }
 }
